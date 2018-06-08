@@ -7,6 +7,11 @@ var localStream;
 var pc;
 var remoteStream;
 var turnReady;
+var startButton = document.getElementById('startButton');
+var roomInput = document.getElementById('roomInput');
+var userInput = document.getElementById('userInput');
+
+startButton.onclick = start;
 
 var pcConfig = {
   'iceServers': [{
@@ -28,9 +33,11 @@ var room = 'foo';
 
 var socket = io.connect();
 
-if (room !== '') {
-  socket.emit('create or join', room);
-  console.log('Attempted to create or  join room', room);
+function connectToRoom(room) {
+	if (room !== '') {
+		socket.emit('create or join', room);
+		console.log('Attempted to create or  join room', room);
+	}
 }
 
 socket.on('created', function(room) {
@@ -46,11 +53,13 @@ socket.on('join', function (room){
   console.log('Another peer made a request to join room ' + room);
   console.log('This peer is the initiator of room ' + room + '!');
   isChannelReady = true;
+  sendMessage("joined user: " + userInput.value );
 });
 
 socket.on('joined', function(room) {
   console.log('joined: ' + room);
   isChannelReady = true;
+  sendMessage("joined user: " + userInput.value );
 });
 
 socket.on('log', function(array) {
@@ -93,14 +102,38 @@ socket.on('message', function(message) {
 var localVideo = document.querySelector('#localVideo');
 var remoteVideo = document.querySelector('#remoteVideo');
 
+/**
 navigator.mediaDevices.getUserMedia({
-  audio: false,
+  audio: true,
   video: true
 })
 .then(gotStream)
 .catch(function(e) {
   alert('getUserMedia() error: ' + e.name);
 });
+
+*/
+//connectToRoom(room);
+
+function start() {
+  trace('Requesting local stream');
+  //room =  roomInput.value;
+  connectToRoom(room);
+  
+  startButton.disabled = true;
+  navigator.mediaDevices.getUserMedia({
+    audio: true,
+    video: true
+  })
+  .then(gotStream)
+  .catch(function(e) {
+    alert('getUserMedia() error: ' + e.name);
+  });
+  
+  callButton.disabled = false;
+  //sdcCreateConnection(onReceiveRemoteSdbData);
+  
+}
 
 function gotStream(stream) {
   console.log('Adding local stream.');
@@ -113,7 +146,9 @@ function gotStream(stream) {
 }
 
 var constraints = {
+  audio: true,
   video: true
+  
 };
 
 console.log('Getting user media with constraints', constraints);
