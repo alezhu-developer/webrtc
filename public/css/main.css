@@ -7,18 +7,29 @@
  */
 button {
   margin: 0 20px 0 0;
-  width: 83px;
+  width: 120px;
 }
 
-button#hangupButton {
-    margin: 0;
+.new-line {
+	float:left;
+	width: 100%;
 }
+.left-col {
+	float:left;
+	width: calc(50% - 12px);
+}
+.right-col {
+	float:right;
+	width: calc(50% - 12px);
+}
+
 
 video {
   height: 225px;
   margin: 0 0 20px 0;
   vertical-align: top;
-  width: calc(50% - 12px);
+  width: 100%;
+  #width: calc(50% - 12px);
 }
 
 video#localVideo {
@@ -27,7 +38,7 @@ video#localVideo {
 
 @media screen and (max-width: 400px) {
   button {
-    width: 83px;
+    width: 120px;
   }
 
   button {

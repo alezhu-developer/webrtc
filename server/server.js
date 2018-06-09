@@ -8,6 +8,9 @@ var socketIO = require('socket.io');
 
 var fileServer = new(nodeStatic.Server)("../public");
 
+var logger = require('./logger');
+logger.debugLevel = 'warn';
+logger.log('info', 'Starting server');
 
 
 var options = {
@@ -28,6 +31,9 @@ io.sockets.on('connection', function(socket) {
   function log() {
     var array = ['Message from server:'];
     array.push.apply(array, arguments);
+	
+	var clientIp = socket.request.connection.remoteAddress;
+	logger.log('info', clientIp, array);
     socket.emit('log', array);
   }
 
@@ -53,9 +59,14 @@ io.sockets.on('connection', function(socket) {
     } else if (numClients === 1) {
       log('Client ID ' + socket.id + ' joined room ' + room);
       io.sockets.in(room).emit('join', room);
+	  
       socket.join(room);
       socket.emit('joined', room, socket.id);
+	  
       io.sockets.in(room).emit('ready');
+	  
+	  var clientIp = socket.request.connection.remoteAddress;
+	  io.sockets.in(room).emit('remoteip', clientIp);
     } else { // max two clients
       socket.emit('full', room);
     }

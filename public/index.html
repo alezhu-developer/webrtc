@@ -39,34 +39,44 @@
 
     <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a> <span>Peer connection</span></h1>
 
-    <video id="localVideo" autoplay muted></video>
-    <video id="remoteVideo" autoplay></video>
-
-    <div>
-      
-      <button id="callButton">Call</button>
-      <button id="hangupButton">Hang Up</button>
-	  <button id="sendHelloButton">Send Hello</button>
-	  <button id="waitForCallButton">Wait or call</button>
-	  
-	  <diV class="container">
+	<div>
+		<div class="left-col">
+			<video id="localVideo" autoplay muted></video>
+			<div id="localIpLabel">Local IP Info</div>
+			<div id="localIpInfo"></div>
+		</div>
+		<div class="right-col">
+			<video id="remoteVideo" autoplay></video>
+			<div id="remoteIpLabel">Remote IP Info</div>
+			<label id="remoteIpInfo"></label>
+		</div>
+	</div>
+	
+	<div class="new-line" >
+		<video id="recorded" loop controls></video>
+	</div>
+	
+    <div class="new-line" >
 		<br><br><label>User name:</label>
 		<input type="text" id="userInput" value="user"></button>
 		<br><br><label>Room name:</label>
 		<input type="text" id="roomInput" value="room"></button>
-		<br><button id="startButton">Start video chat</button>
-	  </div>
-	  
-	  
+		<br><br>
+		<button id="startButton">Start video chat</button>
+		<button id="hangupButton">Hang Up</button>
+		
+		<button id="record">Start Recording</button>
+		<button id="download">Download</button>
+		<br><br>
+		<button id="sendHelloButton">Send Hello</button>
     </div>
 
-    <p>View the console to see logging. The <code>MediaStream</code> object <code>localStream</code>, and the <code>RTCPeerConnection</code> objects <code>pc1</code> and <code>pc2</code> are in global scope, so you can inspect them in the console as well.</p>
-
-    <p>For more information about RTCPeerConnection, see <a href="http://www.html5rocks.com/en/tutorials/webrtc/basics/" title="HTML5 Rocks article about WebRTC by Sam Dutton">Getting Started With WebRTC</a>.</p>
-
-
-    <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/peerconnection/pc1" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
-
+	<div class="new-line">
+		<p>View the console to see logging. The <code>MediaStream</code> object <code>localStream</code>, and the <code>RTCPeerConnection</code> objects <code>pc1</code> and <code>pc2</code> are in global scope, so you can inspect them in the console as well.</p>
+		<p>For more information about RTCPeerConnection, see <a href="http://www.html5rocks.com/en/tutorials/webrtc/basics/" title="HTML5 Rocks article about WebRTC by Sam Dutton">Getting Started With WebRTC</a>.</p>
+		<a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/peerconnection/pc1" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
+	</div>
+	
   </div>
 
   <script src="lib/js/adapter/adapter-latest.js"></script>
