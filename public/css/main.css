@@ -7,38 +7,60 @@
  */
 button {
   margin: 0 20px 0 0;
-  width: 120px;
+  width: 83px;
 }
 
-.new-line {
-	float:left;
-	width: 100%;
-}
-.left-col {
-	float:left;
-	width: calc(50% - 12px);
-}
-.right-col {
-	float:right;
-	width: calc(50% - 12px);
+button#hangupButton {
+    margin: 0;
 }
 
+callIcon {
+	content: url('https://icons.simplesvg.com/icomoon-free:phone-hang-up.svg?color=%23626262&height=16');
+	vertical-align: -0.125em;
+}
+
+.hangup {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	bottom: 30px;
+	left: 10px;
+	background-color: transparent;
+}
 
 video {
   height: 225px;
   margin: 0 0 20px 0;
   vertical-align: top;
-  width: 100%;
-  #width: calc(50% - 12px);
 }
 
 video#localVideo {
+  height: 25%;
+  width: 25%;
+  margin: 0px 0px 0px 0px;
+}
+video#remoteVideo {
+  height: 100%;
+  width: 100%;
   margin: 0 20px 20px 0;
 }
 
+.videoBox {
+    position:relative;
+}
+
+.videoBox .overlay {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  background-color: gray;
+  border: solid 1px #ffffff;
+}
+
+
 @media screen and (max-width: 400px) {
   button {
-    width: 120px;
+    width: 83px;
   }
 
   button {

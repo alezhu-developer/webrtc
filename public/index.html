@@ -5,11 +5,9 @@
  *  Use of this source code is governed by a BSD-style license
  *  that can be found in the LICENSE file in the root of the source
  *  tree.
- test
 -->
 <html>
 <head>
-
   <meta charset="utf-8">
   <meta name="description" content="WebRTC code samples">
   <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
@@ -19,9 +17,9 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta id="theme-color" name="theme-color" content="#ffffff">
 
-  <base target="_blank">
-
-  <title>Peer connection</title>
+  <title>Norvik Video Chat</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <link rel="icon" sizes="192x192" href="lib/images/webrtc-icon-192x192.png">
   <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
@@ -30,63 +28,37 @@
 
 </head>
 
-<body>
-
-  <div id="container">
-
-    <div class="highlight">
-      <p>New codelab: <a href="https://codelabs.developers.google.com/codelabs/webrtc-web">Realtime communication with WebRTC</a></p>
-    </div>
-
-    <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a> <span>Peer connection</span></h1>
-
-	<div>
-		<div class="left-col">
-			<video id="localVideo" autoplay muted></video>
-			<div id="localIpLabel">Local IP Info</div>
-			<div id="localIpInfo"></div>
+<body style="">
+	
+		<div id="container">
+			<form id="1213123" method="get" action="/videochat.html">
+				<h1>Norvik remote client office</h1> <br>
+				<div class="panel panel-primary">
+					
+					<div class="panel-heading"><h4>Please enter your room id</h4></div><br>
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="roomInput">Room Id:</label>
+							<input class="form-control" type="text" id="roomInput" name="room" value="room" placeholder="Enter room id"></button>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Client name:</label>
+							<input class="form-control" type="text" id="clientNameInput" name="clientName" value="" placeholder="Enter your name"></button>
+						</div>
+						<br>
+						<input class="btn btn-primary" type="submit" value="Start call"></button>
+					</div>
+				</div>
+			</form>
+			<br>
+			<p>Attention to improve the quality of customer service the conversation is recorded!</p>
 		</div>
-		<div class="right-col">
-			<video id="remoteVideo" autoplay></video>
-			<div id="remoteIpLabel">Remote IP Info</div>
-			<label id="remoteIpInfo"></label>
-		</div>
-	</div>
 	
-	<div class="new-line" >
-		<video id="recorded" loop controls></video>
-	</div>
 	
-    <div class="new-line" >
-		<br><br><label>User name:</label>
-		<input type="text" id="userInput" value="user"></button>
-		<br><br><label>Room name:</label>
-		<input type="text" id="roomInput" value="room"></button>
-		<br><br>
-		<button id="startButton">Start video chat</button>
-		<button id="hangupButton">Hang Up</button>
-		
-		<button id="record">Start Recording</button>
-		<button id="download">Download</button>
-		<br><br>
-		<button id="sendHelloButton">Send Hello</button>
-    </div>
-
-	<div class="new-line">
-		<p>View the console to see logging. The <code>MediaStream</code> object <code>localStream</code>, and the <code>RTCPeerConnection</code> objects <code>pc1</code> and <code>pc2</code> are in global scope, so you can inspect them in the console as well.</p>
-		<p>For more information about RTCPeerConnection, see <a href="http://www.html5rocks.com/en/tutorials/webrtc/basics/" title="HTML5 Rocks article about WebRTC by Sam Dutton">Getting Started With WebRTC</a>.</p>
-		<a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/peerconnection/pc1" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
-	</div>
 	
-  </div>
-
-  <script src="lib/js/adapter/adapter-latest.js"></script>
-  <script src="lib/js/jquery/jquery.min.js"></script>
-  <script src="lib/js/sockjs/sockjs.min.js"></script>
-  <script src="lib/js/socket.io/socket.io.js"></script>
-  <script src="lib/js/common.js"></script>
-  <script src="lib/js/stomp/stomp.min.js"></script>
-  <script src="js/sdc.js"></script>
-  <script src="main.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 </body>
 </html>
