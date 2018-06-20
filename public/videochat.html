@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+ *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="WebRTC code samples">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <meta itemprop="image" content="lib/images/webrtc-icon-192x192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta id="theme-color" name="theme-color" content="#ffffff">
+
+  <link rel="icon" sizes="192x192" href="lib/images/webrtc-icon-192x192.png">
+  <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="lib/css/main.css" />
+  <link rel="stylesheet" href="css/main.css" />
+
+</head>
+
+<body>
+  <div id="container">
+	<h1>Norvik remote client office</h1>
+	
+	<div class="videoBox" >
+		<h4 style="display: inline;">Your room is: [<span id="roomId"></span>]</h4>
+		<a href="index.html">Change room</a><br>
+		<h4 style="display: inline;">Your name is: [<span id="clientName"></span>]</h4><br><br>
+		
+		<video class="" id="remoteVideo" autoplay poster="/images/waiting_room_conn.gif"></video>
+		<video class="overlay" id="localVideo" autoplay muted poster="/images/waiting.gif"></video>
+		<button class="hangup" id="hangupButton"><img src="images/hangup.png"></button>
+	</div>
+	    
+	
+	<br>
+	
+  </div>
+
+  <script src="lib/js/adapter/adapter-latest.js"></script>
+  <script src="lib/js/jquery/jquery.min.js"></script>
+  <script src="lib/js/sockjs/sockjs.min.js"></script>
+  <script src="lib/js/socket.io/socket.io.js"></script>
+  <script src="lib/js/common.js"></script>
+  <script src="lib/js/stomp/stomp.min.js"></script>
+  <script src="main.js"></script>
+  <script>
+	$( document ).ready(function() {
+		console.log( "ready!" );
+		$( "#roomId" ).html(get('room'));
+		$( "#clientName" ).html(get('clientName'));
+/*
+		$( "#hungupButton" ).hover(function() {
+			$( this ).fadeOut( 100 );
+			$( this ).fadeIn( 500 );
+			$( this ).background = "#FFFFFF";
+		});
+		*/
+
+	});
+	
+  </script>
+  
+</body>
+</html>
